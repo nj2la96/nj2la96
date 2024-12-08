@@ -1,53 +1,27 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Load the Home page by default
-    loadPage('home');
-
-    // Add event listeners to navigation links
-    document.querySelectorAll('nav ul li a').forEach(link => {
-        link.addEventListener('click', (event) => {
-            event.preventDefault();
-            const page = link.getAttribute('data-page');
-            loadPage(page);
-        });
-    });
-
-    function loadPage(page) {
-        fetch(`${page}.html`)
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('content').innerHTML = data;
-                if (page === 'contact') {
-                    addFormValidation();
-                }
-            })
-            .catch(error => console.error('Error loading page:', error));
+function addRecommendation() {
+    // Get the message of the new recommendation
+    let recommendation = document.getElementById("new_recommendation");
+    // If the user has left a recommendation, display a pop-up
+    if (recommendation.value != null && recommendation.value.trim() != "") {
+      console.log("New recommendation added");
+      //Call showPopup here
+      showPopup(true);
+      // Create a new 'recommendation' element and set it's value to the user's message
+      var element = document.createElement("div");
+      element.setAttribute("class","recommendation");
+      element.innerHTML = "\<span\>&#8220;\</span\>" + recommendation.value + "\<span\>&#8221;\</span\>";
+      // Add this element to the end of the list of recommendations
+      document.getElementById("all_recommendations").appendChild(element); 
+      
+      // Reset the value of the textarea
+      recommendation.value = "";
     }
-
-    function addFormValidation() {
-        document.getElementById('contactForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const message = document.getElementById('message').value.trim();
-
-            if (name === '' || email === '' || message === '') {
-                alert('All fields are required!');
-                return;
-            }
-
-            if (!validateEmail(email)) {
-                alert('Please enter a valid email address.');
-                return;
-            }
-
-            alert('Form submitted successfully!');
-            // Reset form after submission
-            document.getElementById('contactForm').reset();
-        });
+  }
+  
+  function showPopup(bool) {
+    if (bool) {
+      document.getElementById('popup').style.visibility = 'visible'
+    } else {
+      document.getElementById('popup').style.visibility = 'hidden'
     }
-
-    function validateEmail(email) {
-        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return re.test(email);
-    }
-});
+  }

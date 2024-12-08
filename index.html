@@ -1,29 +1,165 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#" data-page="home">Home</a></li>
-                <li><a href="#" data-page="about">About Me</a></li>
-                <li><a href="#" data-page="projects">Projects</a></li>
-                <li><a href="#" data-page="skills">Skills</a></li>
-                <li><a href="#" data-page="contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main id="content">
-        <!-- Dynamic Content will be loaded here -->
-    </main>
-    <footer>
-        <p>&copy; 2024 My Portfolio</p>
-    </footer>
+<html>
+  <head>
+    <title>My Portfolio Website</title>
+    <link rel="stylesheet" href="styles.css"/>
     <script src="script.js"></script>
-</body>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav>
+      <div id="home">
+        <div class="profile_name">
+          My Portfolio Website
+          <div class="contact_info">
+            <img src="envelope.png" alt="An envelope image"/>
+        </div>
+        <div style="clear:both;"></div>
+        <div class="contact_info">
+          <img src="phone.png" alt="A phone image"/>
+        </div>
+        </div>
+        <div class="topdiv">
+          <a class="topmenu" href="#about-me">About Me</a>
+          <a class="topmenu" href="#skills">Skills</a>
+          <a class="topmenu" href="#projects">Projects</a>
+          <a class="topmenu" href="#contact">Contact</a>
+        </div>
+      </div>    
+    </nav>
+    <!-- About Me -->
+    <section id="about-me" class="container">
+      <div>
+        <img src="profile.png" class="profile_image" alt="profile image"/>
+      </div>
+      <div>
+          <h1>
+            Hi, I'm a developer. 👋🏽
+          </h1>
+          <p>
+            This is a paragraph to describe who I am.
+          </p>
+      </div>
+    </section>
+              
+    <!-- Skills -->
+    <section id="skills">
+      <h2>Skills</h2>
+      <div style="clear:both;"></div>
+
+      <div class="all_skills">
+        <div class="skill">
+          <img src="html5.png" alt="html5 image"/>
+          <h6>HTML</h6>
+          <p>30 years experience</p>
+        </div>  
+
+        <div class="skill">
+          <img src="js.jpeg" alt="javascript image"/>
+          <h6>JavaScript</h6>
+          <p>25 years experience</p>
+        </div>  
+
+         <div class="skill">
+          <img src="react.png" alt="react image"/>
+          <h6>React</h6>
+          <p>10 years experience</p>
+        </div>  
+
+         <div class="skill">
+          <img src="java.png" alt="java image"/>
+          <h6>Java</h6>
+          <p>30 years experience</p>
+        </div>  
+
+         <div class="skill">
+          <img src="CSS3.png" alt="css image"/>
+          <h6>CSS</h6>
+          <p>15 years experience</p>
+        </div>  
+      </div>
+    </section>
+          
+    <!-- Projects -->
+    <section class="projects" id="projects">
+      <h2>
+        Projects
+      </h2>
+      <div style="clear:both;"></div>
+        <div id="projects-container" class="projects-container">
+          <div class="project-card">
+            <h3>Planet Express</h3>
+            <ul>
+              <li>Built an internal portal for tracking deliveries, employee performance, and the number of times Fry screws up in a day.</li>
+            </ul>
+          </div>
+          <hr>
+          <div class="project-card">
+            <h3>MomCorp</h3>
+            <ul>
+              <li>Worked on optimizing their e-commerce platform. Quit because they were too ethical for my taste.</li>
+            </ul>
+          </div>
+          <hr>
+          <div class="project-card">
+            <h3>Robot Mafia</h3>
+            <ul>
+              <li>Freelance gig. Let's just say their website is now "unbeatable."</li>
+            </ul>
+          </div>
+    </div>
+    </section>
+    <div style="clear:both;"></div>
+
+    <!-- Recommendations -->
+    <section id="recommendations">
+      <h2>Recommendations</h2>
+      <div style="clear:both;"></div>
+      <div class="all_recommendations" id="all_recommendations">
+        <div class="recommendation">
+          <span>&#8220;</span>
+          Bender's unique approach to web development is... unconventional. But he gets results. Just make sure to keep him away from the office coffee machine.
+          <span>&#8221;</span>
+        </div>
+        <div class="recommendation">
+          <span>&#8220;</span>
+          Good news, everyone! Bender's coding is almost as impressive as his capacity for alcohol. If you need a website, he's your robot... I suppose.
+          <span>&#8221;</span>
+        </div>
+        <div class="recommendation">
+          <span>&#8220;</span>
+          Bender's web skills are as sharp as his wit. He once fixed a bug while stealing my wallet. Highly recommend, just watch your belongings!
+          <span>&#8221;</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Recommendation Form -->
+    <section id="contact">
+      <div class="flex_center">
+        <fieldset>
+          <legend class="introduction">Leave a Recommendation</legend>          
+          <input type="text" placeholder="Name (Optional)"> <br/>
+          <textarea id="new_recommendation" cols="500" rows="10" placeholder="Message"></textarea>
+          <div class="flex_center">
+            <button id="recommend_btn" onclick="addRecommendation()">Submit</button>
+          </div>
+        </fieldset>
+      </div>
+    </section>
+
+    <div class="iconbutton">
+      <a href="#home">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" width="63px">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M15 11.25l-3-3m0 0l-3 3m3-3v7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+</svg>
+      </a>
+    </div>
+
+    <div class="popup" id="popup" class="flex_center">
+      <img src="html_finalprojimages/checkmark--outline.svg"/>
+      <h3>Thanks for the recommendation, meatbag! You've got good taste... for a human.</h3>
+      <button onclick="showPopup(false)">Ok</button>
+    </div>
+  </body>
 </html>
